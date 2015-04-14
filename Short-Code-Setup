@@ -1,0 +1,60 @@
+// To add shortcode to make your file in to a template just create a .php template file with
+
+<?php
+get_header();
+?>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<?php
+function answers_shortcode_handler( $atts, $content = null ) { 
+	return '	
+<div class="v-tab"><ul class="tab__head">
+  <li id="t1" rel="tab1" style="font-size:14px;"><input id="radio-input-1" type="radio" value="myValue 1" name="radio-group"><label for="radio-input-1" class="input-helper input-helper--radio">
+    <p>'.$atts['a1'].'</p></label></li>
+  <li id="t2" rel="tab2" style="font-size:14px;"><input id="radio-input-2" type="radio" value="myValue 2" name="radio-group"><label for="radio-input-2" class="input-helper input-helper--radio">
+    <p>'.$atts['a2'].'</p></label></li>
+  <li id="t3" rel="tab3" style="font-size:14px;"><input id="radio-input-3" type="radio" value="myValue 3" name="radio-group"><label for="radio-input-3" class="input-helper input-helper--radio">
+    <p>'.$atts['a3'].'</p></label></li>
+  <li id="t4" rel="tab4" style="font-size:14px;"><input id="radio-input-4" type="radio" value="myValue 4" name="radio-group"><label for="radio-input-4" class="input-helper input-helper--radio">
+    <p>'.$atts['a4'].'</p></label></li>
+  <li id="t5" rel="tab5" style="font-size:14px;"><input id="radio-input-5" type="radio" value="myValue 5" name="radio-group"><label for="radio-input-5" class="input-helper input-helper--radio">
+    <p>'.$atts['a5'].'</p></label></li>
+  <li id="t6" rel="tab6" style="font-size:14px;"><input id="radio-input-6" type="radio" value="myValue 6" name="radio-group"><label for="radio-input-6" class="input-helper input-helper--radio">
+    <p>'.$atts['a6'].'</p></label></li>
+</ul>' . do_shortcode($content) . ' '; } add_shortcode('answers', 'answers_shortcode_handler' );
+function explanations_shortcode_handler( $atts, $content = null ) { 
+	return '
+<br>
+<div class="tab__container">
+<div id="tab1" class="tab__content">
+<div class="picboxnoteslv" style="padding: 2px 2px; margin-top:35px;"><div class="picboxvirid-old" style="padding: 2px;" ><div class="picboxvirid-gradient-old" style="padding: 2px;" ><div class="borderbox40" style="padding: 2px 2px;"><div style="margin-left:5px;"><span style="font-family: Arial; font-size: 110%;"><span style="font-family: Arial; font-size: 100%;">
+<p>'.$atts['e1'].'</p></span></span></div></div></div><div class="picboxpage-shadow-old"></div></div></div></div>
+<div id="tab2" class="tab__content">
+<div class="picboxnoteslv" style="padding: 2px 2px; margin-top:35px;"><div class="picboxvirid-old" style="padding: 2px;" ><div class="picboxvirid-gradient-old" style="padding: 2px;" ><div class="borderbox40" style="padding: 2px 2px;"><div style="margin-left:5px;"><span style="font-family: Arial; font-size: 110%;"><span style="font-family: Arial; font-size: 100%;">
+<p>'.$atts['e2'].'</p></span></span></div></div></div><div class="picboxpage-shadow-old"></div></div></div></div>
+<div id="tab3" class="tab__content">
+<div class="picboxnoteslv" style="padding: 2px 2px; margin-top:35px;"><div class="picboxvirid-old" style="padding: 2px;" ><div class="picboxvirid-gradient-old" style="padding: 2px;" ><div class="borderbox40" style="padding: 2px 2px;"><div style="margin-left:5px;"><span style="font-family: Arial; font-size: 110%;"><span style="font-family: Arial; font-size: 100%;">
+<p>'.$atts['e3'].'</p></span></span></div></div></div><div class="picboxpage-shadow-old"></div></div></div></div>
+<div id="tab4" class="tab__content">
+<div class="picboxnoteslv" style="padding: 2px 2px; margin-top:35px;"><div class="picboxvirid-old" style="padding: 2px;" ><div class="picboxvirid-gradient-old" style="padding: 2px;" ><div class="borderbox40" style="padding: 2px 2px;"><div style="margin-left:5px;"><span style="font-family: Arial; font-size: 110%;"><span style="font-family: Arial; font-size: 100%;">
+<p>'.$atts['e4'].'</p></span></span></div></div></div><div class="picboxpage-shadow-old"></div></div></div></div>
+<div id="tab5" class="tab__content">
+<div class="picboxnoteslv" style="padding: 2px 2px; margin-top:35px;"><div class="picboxvirid-old" style="padding: 2px;" ><div class="picboxvirid-gradient-old" style="padding: 2px;" ><div class="borderbox40" style="padding: 2px 2px;"><div style="margin-left:5px;"><span style="font-family: Arial; font-size: 110%;"><span style="font-family: Arial; font-size: 100%;">
+<p>'.$atts['e5'].'</p></span></span></div></div></div><div class="picboxpage-shadow-old"></div></div></div></div>
+<div id="tab6" class="tab__content">
+<div class="picboxnoteslv" style="padding: 2px 2px; margin-top:35px;"><div class="picboxvirid-old" style="padding: 2px;" ><div class="picboxvirid-gradient-old" style="padding: 2px;" ><div class="borderbox40" style="padding: 2px 2px;"><div style="margin-left:5px;"><span style="font-family: Arial; font-size: 110%;"><span style="font-family: Arial; font-size: 100%;">
+<p>'.$atts['e6'].'</p></span></span></div></div></div><div class="picboxpage-shadow-old"></div></div></div></div>
+</div></div>' . do_shortcode($content) . ' '; } add_shortcode('explanations', 'explanations_shortcode_handler' );
+?>
+<script>
+$(".tab__content").hide(),$(".tab__content:first").hide(),$("#tab1").show(),$(".tab__head li").removeClass("active"),$("#t1").addClass("active"),$(".tab__head li").click(function(){$(".tab__content").hide();var t=$(this).attr("rel");$("#"+t).show(),$(".tab__head li").removeClass("active"),$(this).addClass("active")});
+</script>
+<?php get_footer(); ?>
+
+// after adding your .php template your shortcode will then look like
+
+<html>
+<body>
+[answers a1='One' a2='Two' a3='Three' a4='Four' a5='Five' a6='Six'][/answers]
+[explanations e1='Lorem...' e2='Lorem...' e2='Lorem...' e2='Lorem...' e2='Lorem...' e2='Lorem...'][/explanations]
+</body>
+</html>
